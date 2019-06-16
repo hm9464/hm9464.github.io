@@ -5,7 +5,7 @@ My name is Himanshu Makharia and I currently work as a Data Scientist and Machin
 ## Projects
 
 ### Analysis of hurricanes in the Atlantic basin (1918-2017)
-Repo: https://github.com/hm9464/atlantic_hurricanes
+[Repository Link](https://github.com/hm9464/atlantic_hurricanes)
 
 #### Background
 Hurricanes have become increasingly prominent in recent years due to a combination of factors; most notably, climate change. According to weather.gov, prime conditions for a hurricane to form include
@@ -29,7 +29,7 @@ Comparison of storm paths in the last 100 years:
 Storms have increased in strength (wind speed) and intensity (minimum pressure) over time due to rising sea temperatures that have been observed (approximately 0.13 degrees Celsius per decade over the last 100 years).
 
 ### NLP on Reddit comments
-Repo: https://github.com/hm9464/reddit_nlp
+[Repo Link](https://github.com/hm9464/reddit_nlp)
 
 #### Background
 This project uses the Python Reddit API Wrapper to analyze posts, comments, and statistics of comments across various popular subreddits. 
