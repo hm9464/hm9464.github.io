@@ -1,45 +1,60 @@
-## Background
+# [Start Bootstrap - Business Frontpage](https://startbootstrap.com/template-overviews/business-frontpage/)
 
-My name is Himanshu Makharia and I currently work as a Data Scientist and Machine Learning engineer. My interests include leveraging data to derive insights, building predictive models, and incorporating tools for data visualization.  
+[Business Frontpage](http://startbootstrap.com/template-overviews/business-frontpage/) is a basic business website template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
 
-## Projects
+## Preview
 
-### Analysis of hurricanes in the Atlantic basin (1918-2017)
-[Repository Link](https://github.com/hm9464/atlantic_hurricanes)
+[![Business Frontpage Preview](https://startbootstrap.com/assets/img/templates/business-frontpage.jpg)](https://blackrockdigital.github.io/startbootstrap-business-frontpage/)
 
-#### Background
-Hurricanes have become increasingly prominent in recent years due to a combination of factors; most notably, climate change. According to weather.gov, prime conditions for a hurricane to form include
-* Sea temperature of at least 26 degrees Celsius (80 degrees Farenheit)
-* Latitiude of at least 5 degrees N/S of the equator (cannot form at the intertropical convergence zone due to the Corioles force that causes hurricanes to spin).
-* High relative humidity.
+**[View Live Preview](https://blackrockdigital.github.io/startbootstrap-business-frontpage/)**
 
-This project will analyze hurricane paths in recent seasons, where storms tend to be at their strongest, including visual analysis and statistical trends over time.
+## Status
 
-#### Data Source
-The NOAA records all historical hurricanes and tropical storms in their hurdat dataset. For this project, we will focus on the Atlantic hurricane seasons from 1850-2017. The data are structured with recordings every 6 hours (0000, 0600, 1200, 1800). Hence, one limitation of this dataset is that it does not consider PEAK intensity when determingin strength of a storm, everything is relative to time.
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-business-frontpage/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/startbootstrap-business-frontpage.svg)](https://www.npmjs.com/package/startbootstrap-business-frontpage)
+[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-business-frontpage.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-business-frontpage)
+[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-business-frontpage/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-business-frontpage)
+[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-business-frontpage/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-business-frontpage?type=dev)
 
-#### Hypothesis 1
-Storms are making more frequent landfalls due to increased strength and duration of systems.
+## Download and Installation
 
-Comparison of storm paths in the last 100 years:
-[2008-2017](maps/hurricane_paths_2008-2017.html)<br>
-[1918-1927](maps/hurricane_paths_1918-1927.html)
+To begin using this template, choose one of the following options to get started:
+* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template-overviews/business-frontpage/)
+* Install via npm: `npm i startbootstrap-business-frontpage`
+* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-business-frontpage.git`
+* [Fork, Clone, or Download on GitHub](https://github.com/BlackrockDigital/startbootstrap-business-frontpage)
 
-#### Hypothesis 2
-Storms have increased in strength (wind speed) and intensity (minimum pressure) over time due to rising sea temperatures that have been observed (approximately 0.13 degrees Celsius per decade over the last 100 years).
+## Usage
 
-### NLP on Reddit comments
-[Repo Link](https://github.com/hm9464/reddit_nlp)
+### Basic Usage
 
-#### Background
-This project uses the Python Reddit API Wrapper to analyze posts, comments, and statistics of comments across various popular subreddits. 
+After downloading, simply edit the HTML and CSS files included with the template in your favorite text editor to make changes. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
 
-#### Analysis of Subreddits & Users
-* Sentiment analysis
-* Reading level
-* Average sentence length of comments
+### Advanced Usagez
 
-### Support or Contact
+After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `gulpfile.js` to see which tasks are included with the dev environment.
 
-GitHub: https://github.com/hm9464
-LinkedIn: https://www.linkedin.com/in/himanshumakharia/
+You must have npm and Gulp installed globally on your machine in order to use these features.
+
+## Bugs and Issues
+
+Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-business-frontpage/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/business-frontpage/).
+
+## About
+
+Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+
+* https://startbootstrap.com
+* https://twitter.com/SBootstrap
+
+Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+
+* http://davidmiller.io
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
+
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+
+## Copyright and License
+
+Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-business-frontpage/blob/gh-pages/LICENSE) license.
