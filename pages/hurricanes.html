@@ -53,7 +53,7 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
-          <h1 class="display-4 text-white mt-5 mb-2">Portfolio</h1>
+          <h1 class="display-4 text-white mt-5 mb-2">Atlantic Hurricane Analysis</h1>
           <!-- <p class="lead mb-5 text-white-50">About me</p> -->
         </div>
       </div>
@@ -65,9 +65,8 @@
 
     <div class="row">
       <div class="col-md-8 mb-5">
-        <h2>Analysis of Atlantic Hurricanes</h2>
-        <hr>
         <h3>Background</h3>
+        <hr>
         <p>Hurricanes have become increasingly prominent in recent years due to a combination 
           of factors; most notably, climate change. According to weather.gov, prime conditions 
           for a hurricane to form include:</p>
@@ -82,16 +81,19 @@
           at their strongest, including visual analysis and statistical trends over time.</p>
         <!-- <a class="btn btn-primary btn-lg" href="#">View All Projects &raquo;</a> -->
         <h3>Data Source</h3>
+        <hr>
         <br><a href="https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2017-050118.txt">HURDAT2 Data from NOAA</a><br><br>
         <p>The NOAA records all historical hurricanes and tropical storms in their hurdat dataset. 
           For this project, we will focus on the Atlantic hurricane seasons from 1850-2017. The data are
            structured with recordings every 6 hours (0000, 0600, 1200, 1800). Hence, one limitation of 
            this dataset is that it does not consider PEAK intensity when determingin strength of a storm,
            everything is relative to time.</p>
-        <h3>Analysis</h3> 
-        <h4>Hypothesis 1</h4>
-        <br><p><b>Storms are making more frequent landfalls due to increased strength and duration of systems.</b></p>
-        <p>Comparison of storm paths:</p>
+        <h3>Analysis</h3>
+        <hr>
+        <h4>Hypothesis 1</h4><br>
+        <h5>Storms are making more frequent landfalls due to increased strength and duration of systems</h5>
+        <br>
+        <p><b>Comparison of storm paths</b></p>
         <ul>
             <li><a href="../maps/hurricane_paths_1918-1927.html">1918-1927</a></li>
             <li><a href="../maps/hurricane_paths_2008-2017.html">2008-2017</a></li>
@@ -100,17 +102,72 @@
         last 10 years compared to the 1918-1927 period. Below is a graph comparing number of storms, 
         number of hurricanes (storms that reached hurricane status), and total number of storms that made
         landfall.<br><br>
-        <img src="../images/abs_analysis_10yr.png" alt="">
+        <img src="../images/abs_analysis_10yr.png" alt=""><br>
         Generally, there has been a trend towards higher numbers of all 3 metrics (storms, hurricanes, landfalls),
         although there seems to be a spike in the number of storms in the 1968-1977 period, primarily due to the
         unusually strong 1970 Atlantic Hurricane Season. Let's take a deeper look at the landfalls for each time
         period. <br>
         <img src="../images/landfall_analysis_10yr.png" alt=""><br>
         From this plot, it is evident that there has been a steady increase in the number of hurricanes in the last
-        100 years, which confirms our hypothesis that there 
+        100 years. While there seems to be a higher number of hurricanes in the 1960s and 70s, this time period
+        was characterized by shorter, less intense storms. The table below highlights how storm duration tended
+        to remain fairly constant over time, but recently, there has been a combination of both relatively long
+        storm durations coupled with more storms overall.
+        <br><br>
+        <div class="rTable">
+            <div class="rTableRow">
+              <div class="rTableHead"><strong>Period</strong></div>
+              <div class="rTableHead"><span style="font-weight: bold;">Average Duration</span></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1918-1927</div>
+              <div class="rTableCell">7 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1928-1937</div>
+              <div class="rTableCell">5 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1938-1947</div>
+              <div class="rTableCell">6 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1948-1957</div>
+              <div class="rTableCell">7 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1948-1957</div>
+              <div class="rTableCell">5 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1958-1967</div>
+              <div class="rTableCell">5 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1968-1977</div>
+              <div class="rTableCell">5 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1978-1987</div>
+              <div class="rTableCell">5 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1988-1997</div>
+              <div class="rTableCell">6 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">1998-2007</div>
+              <div class="rTableCell">7 Days</a></div>
+            </div>
+            <div class="rTableRow">
+              <div class="rTableCell">2008-2017</div>
+              <div class="rTableCell">7 Days</a></div>
+            </div>
+        </div>
         <br><br>
         <b>Conclusion:</b> Hypothesis 1 is confirmed; storms ARE making more frequent landfalls, but it is primarily
-          due to the increase in the number of storms over the last 100 years
+          due to the increase in the number of storms over the last 100 years. Average duration of storms does not 
+          have a significant impact on the frequency of landfalls.
       </p><br>
         <h4>Hypothesis 2</h4>
         <br><p>Storms have increased in strength (wind speed) and intensity (minimum pressure) over 
