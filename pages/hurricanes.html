@@ -16,9 +16,18 @@
   <!-- Custom styles for this template -->
   <link href="../css/business-frontpage.css" rel="stylesheet">
 
+  <script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#includedContent").load("../plots/hurricanes_by_year.html"); 
+    });
+  </script> 
+
 </head>
 
 <body>
+
+  <div id="includedContent"></div>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -65,6 +74,10 @@
 
     <div class="row">
       <div class="col-md-8 mb-5">
+        <b>Jupter notebooks for all data loading, parsing, and analysis can be found
+          <a href="https://github.com/hm9464/atlantic_hurricanes/tree/master/notebooks">here</a>
+        </b>
+        <br><br>
         <h3>Background</h3>
         <hr>
         <p>Hurricanes have become increasingly prominent in recent years due to a combination 
@@ -82,24 +95,56 @@
         <!-- <a class="btn btn-primary btn-lg" href="#">View All Projects &raquo;</a> -->
         <h3>Data Source</h3>
         <hr>
-        <br><a href="https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2017-050118.txt">HURDAT2 Data from NOAA</a><br><br>
+        <a href="https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2017-050118.txt">HURDAT2 Data from NOAA</a><br><br>
         <p>The NOAA records all historical hurricanes and tropical storms in their hurdat dataset. 
           For this project, we will focus on the Atlantic hurricane seasons from 1850-2017. The data are
            structured with recordings every 6 hours (0000, 0600, 1200, 1800). Hence, one limitation of 
            this dataset is that it does not consider PEAK intensity when determingin strength of a storm,
            everything is relative to time.</p>
+
+        <h3>Exploratory Data Analysis</h3>
+        <hr>
+        Before diving into the analysis, lets take a look at the data at a high level to understand
+        the attributes and features of the dataset better. We will look at the number of hurricanes in each year,
+        and the overall number of classified tropical storms in each year. A hurricane is a storm categorized 
+        as having wind speed > 74mph.<br><br>
+        <div className="plotContainer" style="height: 600px; width: 1000px">
+            <iframe src="../plots/ts_and_hurricanes_by_year.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        <br><br>
+        There seems to be a definite trend towards an increasing number of storms since 1851. What's 
+        interesting to note is that there are more years with > 10 hurricanes compared to in the past. 
+        In the period 1851-1990, there were 9 years where the number of hurricanes was 10 or greater. 
+        Since 1990, there have been 6 years with 10 or more hurricanes. 
+        <br><br>
+        Let's take a look at the storm paths over time. We will compare the paths for two 10-year time
+        periods to visualize how the number and strength of storms has changed over the years.
+        The darker the path is, the stronger the storm. Hover over the path for the storm name, and
+        click any part of the line to get information on what the storm's status was at the time (including
+        wind speed, category, minimum pressure, date and time).
+        <br><br>
+        <h5>1908-1917</h5>
+        <div className="mapContainer" style="height: 600px; width: 800px">
+            <iframe src="../maps/hurricane_paths_1908-1917.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        <br><br>
+        <h5>2008-2017</h5>
+        <div className="mapContainer" style="height: 600px; width: 800px">
+            <iframe src="../maps/hurricane_paths_2008-2017.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        <br>
+        From the above maps, it is evident that there have been significantly more hurricanes in the 
+        last 10 years compared to the 1908-1917 period. It's also interesting to note the number of 
+        storms at higher latitudes in the 2008-2017 period, which indicates that warming sea tempeatures 
+        may be allowing tropical storms to enjoy a wider range of latitudes, and could potentially 
+        be contributing to the higher number of overall storms being observed.
+        <br><br>
         <h3>Analysis</h3>
         <hr>
         <h4>Hypothesis 1</h4><br>
-        <h5>Storms are making more frequent landfalls due to increased strength and duration of systems</h5>
+        <h5>Null Hypothesis: Storm landfalls have been consistent over time</h5>
         <br>
-        <p><b>Comparison of storm paths</b></p>
-        <ul>
-            <li><a href="../maps/hurricane_paths_1918-1927.html">1918-1927</a></li>
-            <li><a href="../maps/hurricane_paths_2008-2017.html">2008-2017</a></li>
-        </ul>
-        </p>From the above maps, it is evident that there have been significantly more hurricanes in the 
-        last 10 years compared to the 1918-1927 period. Below is a graph comparing number of storms, 
+        </p> is a graph comparing number of storms, 
         number of hurricanes (storms that reached hurricane status), and total number of storms that made
         landfall.<br><br>
         <img src="../images/abs_analysis_10yr.png" alt=""><br>
@@ -165,7 +210,7 @@
             </div>
         </div>
         <br><br>
-        <b>Conclusion:</b> Hypothesis 1 is confirmed; storms ARE making more frequent landfalls, but it is primarily
+        <b>Conclusion:</b> We reject the null hypothesis 1. Storms ARE making more frequent landfalls, but it is primarily
           due to the increase in the number of storms over the last 100 years. Average duration of storms does not 
           have a significant impact on the frequency of landfalls.
       </p><br>
@@ -173,6 +218,8 @@
         <br><p>Storms have increased in strength (wind speed) and intensity (minimum pressure) over 
           time due to rising sea temperatures that have been observed (approximately 0.13 degrees 
           Celsius per decade over the last 100 years).
+          
+          </div>
         </p>
       </div>
     </div>
