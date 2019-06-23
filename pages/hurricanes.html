@@ -140,8 +140,11 @@
           may be allowing tropical storms to enjoy a wider range of latitudes, and could potentially 
           be contributing to the higher number of overall storms being observed.
         <br><br>
-          Now, lets look at the average duration of storms over the same time period, to see if tropical storms
-          are on average, longer in the recent past compared to history. 
+          Now, lets look at the average duration of tropical storms to see if tropical storms have been
+          increasing in length over time. According to the HURDAT2 data dictionary, data on minor tropical 
+          storms and depressions were only started in the 1950s and 1960s. If we include all data from 1851, 
+          this may skew the results as data from 1850-1960s may miss out minor tropical storms. Therefore, 
+          we will  only look at data from 1970-2017.
         <br><br>
         <div className="plotContainer" style="height: 600px; width: 1000px">
           <iframe src="../plots/ts_avg_duration_by_year.html" style="width:100%; height:100%;"></iframe>
@@ -162,10 +165,8 @@
           This plot provides a good illustration that our assumption is correct. In the late 1800s 
           and early 1900s, it was very rare for tropical storms to make landfall, whereas now it seems to be
           very common. The frequency of multi-year landfalls has also risen sharply in the last two decades.
+          Note: Data is missing for the period 1960-1980.
         <br><br>
-        <h3>Analysis</h3>
-        TODO
-        <hr>
       </div>
     </div>
     <!-- /.row -->
