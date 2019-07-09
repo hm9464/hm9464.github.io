@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <title>Car Image Classification | Himanshu Makharia's Portfolio</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div id="includedContent"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Himanshu Makharia</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Home
+                <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-white mt-5 mb-2">Image Classification of Cars with Convolutional Neural Networks</h1>
+          <!-- <p class="lead mb-5 text-white-50">About me</p> -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 mb-5">
+        <b>Jupter notebooks for all data loading, parsing, and analysis can be found
+          <a href="https://github.com/hm9464/car_image_classification/tree/master/notebooks">here</a>
+        </b>
+        <br><br>
+        <h3>Background</h3>
+        <hr>
+        <p>A convolutional neural networks is a powerful deep learning algorithm that is 
+          popularly used for image recognition and classification. In this project, I have
+          built a convolutional neural network that is trained on determining what kind 
+          of make and model a given car image is closest to.
+          <br><br>
+          Convolutional neural networks are particularly useful for image recognition
+          because they provide the ability to extract specific features out of images
+          (feature detectors). We can then pool and flatten these feature sets to 
+          make these features machine-readable.
+          <br><br>
+          In this project, I will attempt to build 2 models:
+          1. Determine the make and model year of a given car
+          2. Determine the make only of a given car
+          <br><br>
+          I decided to build the second, more general model to see if it was possible
+          to classify cars just on make, since there would be more instances for a 
+          given make. In addition, I was curious to see if it would work well, since
+          car manufacturers tend to have their own 'style' when designing a car. For
+          example, BMW has their signature double grill front that they have sported
+          on almost all their cars in the last 20 years.
+        </p>
+        <h3>Data Source</h3>
+        <hr>
+        <p>Stanford AI Cars database: 
+          The data contains 196 classes of cars with their make and model (e.g.
+          2007 Toyota Corolla). The data is split into an almost even training
+          and testing sample, with 8144 images for training and 8000 for testing.
+        </p>
+
+        <h3>1. Exploratory Data Analysis</h3>
+        <hr>
+        <p>TODO</p>
+
+        <h3>2. Model Building and Evaluation</h3>
+        <hr>
+        <p>I started by running a simple model with the following parameters:<br>
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Value</th> 
+            </tr>
+            <tr>
+              <td>img_pixels</td>
+              <td>128x128</td> 
+            </tr>
+            <tr>
+              <td>n_filters</td>
+              <td>30</td> 
+            </tr>
+            <tr>
+              <td>layer_nodes</td>
+              <td>400</td> 
+            </tr>
+            <tr>
+              <td>batchsize</td>
+              <td>30</td> 
+            </tr>
+            <tr>
+              <td>epochs</td>
+              <td>30</td> 
+            </tr>
+            <tr>
+              <td>steps_per_epoch</td>
+              <td>100</td> 
+            </tr>
+            <tr>
+              <td>validation_steps</td>
+              <td>50</td> 
+            </tr>
+          </table>
+          <br>
+        However, over the course of 30 epochs, the model accuracy didn't seem to budge
+        from ~0.08 (8%). I interpreted this to mean that the model was not learning over
+        time, regardless of the batch size and number of epochs that the training was
+        iterating over.
+        <br><br>
+        Therefore, I decided to increase the number of image pixels to 200x200, since 
+        the model may not have been able to detect any features due to pixellation.
+        <br><br>
+        <h3>Upload your own image! (in progress)</h3>
+        <hr>
+        This function is currently under development. Once complete, you will be 
+        able to upload an image and get the most likely classification of your image 
+        to our dataset of cars.
+        <br><br>
+        <form action="https://himi-deep-learning.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+    
+          <input type="hidden" name="key" value="images/${filename}">
+          <input type="hidden" name="AWSAccessKeyId" value="AKIA6KMKGCYTLYK4XIUN">
+          <input type="hidden" name="acl" value="private">
+          <input type="hidden" name="success_action_redirect" value="image_classifier.html">
+          <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMjEtMDEtMDFUMDA6MDA6MDBaIiwKImNvbmRpdGlvbnMiOiBbCnsiYnVja2V0IjogImhpbWktZGVlcC1sZWFybmluZyJ9LApbInN0YXJ0cy13aXRoIiwgIiRrZXkiLCAiIl0sCnsiYWNsIjogInByaXZhdGUifSwKeyJzdWNjZXNzX2FjdGlvbl9yZWRpcmVjdCI6ICJpbWFnZV9jbGFzc2lmaWVyLmh0bWwifSwKWyJzdGFydHMtd2l0aCIsICIkQ29udGVudC1UeXBlIiwgIiJdLApbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwgMCwgMTA0ODU3Nl0KXQp9">
+          <input type="hidden" name="signature" value="7kt+CKFdpaNkGDnxXTNhT3cdr1E=">
+          <input type="hidden" name="Content-Type" value="application/octet-stream">
+          
+          <input name="file" type="file"><br><br>
+          <input type="submit" value="Upload">
+        </form>
+
+        <hr>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
