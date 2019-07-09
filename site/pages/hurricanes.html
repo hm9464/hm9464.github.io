@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Hurricane Analysis | Himanshu Makharia's Portfolio</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/business-frontpage.css" rel="stylesheet">
+
+  <script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#includedContent").load("../plots/hurricanes_by_year.html"); 
+    });
+  </script> 
+
+</head>
+
+<body>
+
+  <div id="includedContent"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Himanshu Makharia</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Home
+                <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-white mt-5 mb-2">Atlantic Hurricane Analysis</h1>
+          <!-- <p class="lead mb-5 text-white-50">About me</p> -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 mb-5">
+        <b>Jupter notebooks for all data loading, parsing, and analysis can be found
+          <a href="https://github.com/hm9464/atlantic_hurricanes/tree/master/notebooks">here</a>
+        </b>
+        <br><br>
+        <h3>Background</h3>
+        <hr>
+        <p>Hurricanes have become increasingly prominent in recent years due to a combination 
+          of factors; most notably, climate change. According to weather.gov, prime conditions 
+          for a hurricane to form include:</p>
+        <ul>
+            <li>Sea temperature of at least 26 degrees Celsius (80 degrees Farenheit)</li>
+            <li>Latitiude of at least 5 degrees N/S of the equator (cannot form at the 
+              intertropical convergence zone
+               due to the Corioles force that causes hurricanes to spin).</li>
+            <li>High relative humidity.</li>
+          </ul>
+        <p>This project will analyze hurricane paths in recent seasons, where storms tend to be 
+          at their strongest, including visual analysis and statistical trends over time.</p>
+        <!-- <a class="btn btn-primary btn-lg" href="#">View All Projects &raquo;</a> -->
+        <h3>Data Source</h3>
+        <hr>
+        <a href="https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2017-050118.txt">HURDAT2 Data from NOAA</a><br><br>
+        <p>The NOAA records all historical hurricanes and tropical storms in their hurdat dataset.
+          For this project, we will focus on the Atlantic hurricane seasons from 1850-2017. The data are
+          structured with recordings every 6 hours (0000, 0600, 1200, 1800). Hence, one limitation of 
+          this dataset is that it does not consider PEAK intensity when determingin strength of a storm,
+          everything is relative to time.</p>
+
+        <h3>Exploratory Data Analysis</h3>
+        <hr>
+          Before diving into the analysis, lets take a look at the data at a high level to understand
+          the attributes and features of the dataset better. We will look at the number of hurricanes in each year,
+          and the overall number of classified tropical storms in each year. A hurricane is a storm categorized 
+          as having wind speed > 74mph.
+        <br><br>
+        <div className="plotContainer" style="height: 600px; width: 1000px">
+          <iframe src="../plots/ts_and_hurricanes_by_year.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        <br><br>
+          There seems to be a definite trend towards an increasing number of storms since 1851. What's 
+          interesting to note is that there are more years with > 10 hurricanes compared to in the past. 
+          In the period 1851-1990, there were 9 years where the number of hurricanes was 10 or greater. 
+          Since 1990, there have been 6 years with 10 or more hurricanes. 
+        <br><br>
+          Let's take a look at the storm paths over time. We will compare the paths for two 10-year time
+          periods to visualize how the number and strength of storms has changed over the years.
+          The darker the path is, the stronger the storm. Hover over the path for the storm name, and
+          click any part of the line to get information on what the storm's status was at the time (including
+          wind speed, category, minimum pressure, date and time).
+        <br><br>
+        <h5>1908-1917</h5>
+        <div className="mapContainer" style="height: 600px; width: 800px">
+          <iframe src="../maps/hurricane_paths_1908-1917.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        <br><br>
+        <h5>2008-2017</h5>
+        <div className="mapContainer" style="height: 600px; width: 800px">
+          <iframe src="../maps/hurricane_paths_2008-2017.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        <br>
+          From the above maps, it is evident that there have been significantly more hurricanes in the 
+          last 10 years compared to the 1908-1917 period. It's also interesting to note the number of 
+          storms at higher latitudes in the 2008-2017 period, which indicates that warming sea tempeatures 
+          may be allowing tropical storms to enjoy a wider range of latitudes, and could potentially 
+          be contributing to the higher number of overall storms being observed.
+        <br><br>
+          Now, lets look at the average duration of tropical storms to see if tropical storms have been
+          increasing in length over time. According to the HURDAT2 data dictionary, data on minor tropical 
+          storms and depressions were only started in the 1950s and 1960s. If we include all data from 1851, 
+          this may skew the results as data from 1850-1960s may miss out minor tropical storms. Therefore, 
+          we will  only look at data from 1970-2017.
+        <br><br>
+        <div className="plotContainer" style="height: 600px; width: 1000px">
+          <iframe src="../plots/ts_avg_duration_by_year.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        <br><br>
+          It seems like there isn't much of a difference in terms of average storm duration over the course
+          of the last 100 years. I have yet to determine the cause for the spike in the 1870s, although
+          it could be put down to a lack of accurate data.
+        <br><br>
+          Finally, lets look at the number of landfalls over our time period. We would expect there to be more
+          tropical storms and hurricanes making landfalls as there have been more storms in general as time
+          has gone on.
+        <br><br>
+        <div className="plotContainer" style="height: 600px; width: 1000px">
+          <iframe src="../plots/ts_landfalls_by_year.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        <br><br>
+          This plot provides a good illustration that our assumption is correct. In the late 1800s 
+          and early 1900s, it was very rare for tropical storms to make landfall, whereas now it seems to be
+          very common. The frequency of multi-year landfalls has also risen sharply in the last two decades.
+          Note: Data is missing for the period 1960-1980.
+        <br><br>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
