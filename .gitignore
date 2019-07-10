@@ -2,3 +2,4 @@ node_modules
 notes.txt
 credentials.csv
 copy_files_to_ec2.sh
+*.pem
