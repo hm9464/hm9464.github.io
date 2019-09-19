@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Payment Fraud Detection | Himanshu Makharia's Portfolio</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div id="includedContent"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Himanshu Makharia</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Home
+                <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-white mt-5 mb-2">Payment Fraud Detection</h1>
+          <!-- <p class="lead mb-5 text-white-50">About me</p> -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 mb-5">
+        <b>Jupter notebooks for all data loading, parsing, and analysis can be found
+          <a href="https://github.com/hm9464/ieee_kaggle_competition">here</a>
+        </b>
+        <br><br>
+        <h3>Background</h3>
+        <hr>
+        <p>This is my submission for the 
+          <a href="https://www.kaggle.com/c/ieee-fraud-detection">IEEE-CIS Kaggle Competition</a>
+          to predict the likelihood of fraud in an electronic payment (credit/debit cards).
+        </p>
+        <h3>Exploratory Data Analysis</h3>
+        <hr>
+          We want to get a better understanding of the data elements before diving into model building to 
+          gain some intiution first.
+        <br><br>
+        <h4>Transaction Amounts</h4>
+        One of the key data elements is the amounts of individual transactions. We will start by simply
+        looking at the distribution frequency of transaction amounts.
+        <div className="plotContainer" style="height: 600px; width: 1000px">
+            <iframe src="../images/fraud/fraud_transaction_amount.png" style="width:100%; height:100%;"></iframe>
+          </div>
+         
+        <h4>Product Types</h4>
+        
+        <h4>Card Attributes</h4>
+        
+        <h4>Device Type</h4>
+      
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
