@@ -106,8 +106,31 @@
 
         <h3>1. Exploratory Data Analysis</h3>
         <hr>
-        <p>TODO</p>
-
+        <hr>
+        <a href="https://github.com/hm9464/car_image_classification/tree/master/notebooks/1_EDA.ipynb">Notebook</a>
+        <br><br>
+        The data contains 8144 images for the training set and 8040 for the test set.
+        I began by running some simple statistical summaries on the images to see
+        how balance the data is with respect to the number of samples for each class.
+        Here are the highlights:
+      </p>
+        <ul>
+          <li>GMC Savana Van 2012 has the most number of images with 68</li>
+          <li>Hyundai Accent Sedan 2012 has the least number of images with 24</li>
+          <li>Average number of images per car = 41.55</li>
+          <li>Variance of images per car = 18.78</li>
+        </ul>
+      </p>
+        Here is a visualization of the distribution of images per class.
+      </p>
+        <div className="plotContainer" style="height: 600px; width: 1000px">
+          <iframe src="../plots/image_count_histogram.html" style="width:100%; height:100%;"></iframe>
+        </div>
+      </p>
+        Looks like that 2012 GMC Savannah is an outlier with 68 images for the training set.
+        However, apart from that the distribution seems to be relatively normal, which is
+        promising as it means the number of samples per class is balanced enough.
+      </p>
         <h3>2. Model Building and Evaluation</h3>
         <hr>
         <p>I started by running a simple model with the following parameters:<br>
@@ -154,27 +177,23 @@
         Therefore, I decided to increase the number of image pixels to 200x200, since 
         the model may not have been able to detect any features due to pixellation.
         <br><br>
-        <h3>Upload your own image! (in progress)</h3>
-        <hr>
-        This function is currently under development. Once complete, you will be 
-        able to upload an image and get the most likely classification of your image 
-        to our dataset of cars.
-        <br><br>
-        <form action="https://himi-deep-learning.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-    
-          <input type="hidden" name="key" value="images/${filename}">
-          <input type="hidden" name="AWSAccessKeyId" value="AKIA6KMKGCYTLYK4XIUN">
-          <input type="hidden" name="acl" value="private">
-          <input type="hidden" name="success_action_redirect" value="image_classifier.html">
-          <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjogIjIwMjEtMDEtMDFUMDA6MDA6MDBaIiwKImNvbmRpdGlvbnMiOiBbCnsiYnVja2V0IjogImhpbWktZGVlcC1sZWFybmluZyJ9LApbInN0YXJ0cy13aXRoIiwgIiRrZXkiLCAiIl0sCnsiYWNsIjogInByaXZhdGUifSwKeyJzdWNjZXNzX2FjdGlvbl9yZWRpcmVjdCI6ICJpbWFnZV9jbGFzc2lmaWVyLmh0bWwifSwKWyJzdGFydHMtd2l0aCIsICIkQ29udGVudC1UeXBlIiwgIiJdLApbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwgMCwgMTA0ODU3Nl0KXQp9">
-          <input type="hidden" name="signature" value="7kt+CKFdpaNkGDnxXTNhT3cdr1E=">
-          <input type="hidden" name="Content-Type" value="application/octet-stream">
-          
-          <input name="file" type="file"><br><br>
-          <input type="submit" value="Upload">
-        </form>
-
-        <hr>
+        Below are plots detailing the accuracy of the model with 200x200 pixels.</p>
+        <h4>Accuracy</h4>
+        <div className="plotContainer" style="height: 400px; width: 600px">
+          <iframe src="../plots/train_val_acc_algo1.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        </p>
+        <h4>Loss</h4>
+        <div className="plotContainer" style="height: 400px; width: 600px">
+          <iframe src="../plots/train_val_loss_algo1.html" style="width:100%; height:100%;"></iframe>
+        </div>
+        </p>
+        While training accuracy seems to improve over time as the loss reduces, the
+        validation accuracy stays relatively constant while loss initially decreases, 
+        before increasing after about the 20th epoch. This could be indicative of overfitting.
+      </p>
+        In order to deal with this, we will introduce data augmentation in the training
+        images.
       </div>
     </div>
     <!-- /.row -->
