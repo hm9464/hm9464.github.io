@@ -3,4 +3,3 @@ notes.txt
 credentials.csv
 *.pem
 s3_file_upload.html
-copy_files_to_ec2.sh
