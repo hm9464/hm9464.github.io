@@ -85,9 +85,9 @@
           (feature detectors). We can then pool and flatten these feature sets to 
           make these features machine-readable.
           <br><br>
-          In this project, I will attempt to build 2 models:
-          1. Determine the make and model year of a given car
-          2. Determine the make only of a given car
+          In this project, I will:
+          1. Create my own training dataset using images scraped from Google.
+          2. Determine the make and model any car manufactured in 2020.
           <br><br>
           I decided to build the second, more general model to see if it was possible
           to classify cars just on make, since there would be more instances for a 
@@ -98,12 +98,17 @@
         </p>
         <h3>Data Source</h3>
         <hr>
-        <p>Stanford AI Cars database: 
+        <p>The inspiration of this project was from the Stanford AI Cars database: 
           The data contains 196 classes of cars with their make and model (e.g.
           2007 Toyota Corolla). The data is split into an almost even training
           and testing sample, with 8144 images for training and 8000 for testing.
         </p>
-
+        <p>
+          However, I wanted more classes and observations per class, so I wrote my 
+          own script tp scrape google images using Selenium and Pillow. I scraped
+          over 600 classes of makes and models with approximately 30 observations 
+          per class. The script can be found <a href="https://github.com/hm9464/car_image_classification/blob/master/scripts/img_scraper.py">here</a>. 
+        </p>
         <h3>1. Exploratory Data Analysis</h3>
         <hr>
         <hr>
@@ -117,23 +122,22 @@
         <ul>
           <li>GMC Savana Van 2012 has the most number of images with 68</li>
           <li>Hyundai Accent Sedan 2012 has the least number of images with 24</li>
-          <li>Average number of images per car = 41.55</li>
-          <li>Variance of images per car = 18.78</li>
+          <li>Average number of images per car = 70</li>
         </ul>
       </p>
-        Here is a visualization of the distribution of images per class.
+        Here is a visualization of the number of images per make. This may be important
+        to note since certain makes produce a wider variety of cars (e.g. BMW, Chevrolet).
       </p>
         <div className="plotContainer" style="height: 600px; width: 1000px">
           <iframe src="../plots/image_count_histogram.html" style="width:100%; height:100%;"></iframe>
         </div>
       </p>
-        Looks like that 2012 GMC Savannah is an outlier with 68 images for the training set.
-        However, apart from that the distribution seems to be relatively normal, which is
-        promising as it means the number of samples per class is balanced enough.
+        Every make has at least 60 images for training, while at the high end, BMW and Mercedes-Benz 
+        have over 3,500 images each across all 2020 models.
       </p>
         <h3>2. Model Building and Evaluation</h3>
         <hr>
-        <p>I started by running a simple model with the following parameters:<br>
+        <p>Optimized hyperparameters:<br>
           <table>
             <tr>
               <th>Parameter</th>
@@ -181,13 +185,6 @@
             </tr>
           </table>
           <br>
-        However, over the course of 30 epochs, the model accuracy didn't seem to budge
-        from ~0.08 (8%). I interpreted this to mean that the model was not learning over
-        time, regardless of the batch size and number of epochs that the training was
-        iterating over.
-        <br><br>
-        Therefore, I decided to increase the number of image pixels to 200x200, since 
-        the model may not have been able to detect any features due to pixellation.
         <br><br>
         Below are plots detailing the accuracy of the model with 200x200 pixels.</p>
         <h4>Accuracy</h4>
@@ -200,12 +197,7 @@
           <iframe src="../plots/training_loss.html" style="width:100%; height:100%;"></iframe>
         </div>
         </p>
-        While training accuracy seems to improve over time as the loss reduces, the
-        validation accuracy stays relatively constant while loss initially decreases, 
-        before increasing after about the 20th epoch. This could be indicative of overfitting.
       </p>
-        In order to deal with this, we will introduce data augmentation in the training
-        images.
       </div>
     </div>
     <!-- /.row -->
