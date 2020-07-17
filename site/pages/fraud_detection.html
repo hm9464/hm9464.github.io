@@ -77,7 +77,7 @@
           <a href="https://www.kaggle.com/c/ieee-fraud-detection">IEEE-CIS Kaggle Competition</a>
           to predict the likelihood of fraud in an electronic payment (credit/debit cards).
         </p>
-        <h3>Exploratory Data Analysis</h3>
+        <h3>1. Exploratory Data Analysis</h3>
         <hr>
           We want to get a better understanding of the data elements before diving into model building to 
           gain some intiution first.
@@ -85,19 +85,81 @@
         <h4>Transaction Amounts</h4>
         One of the key data elements is the amounts of individual transactions. We will start by simply
         looking at the distribution frequency of transaction amounts.
-        <div className="plotContainer" style="height: 600px; width: 1000px">
-            <iframe src="../images/fraud/fraud_transaction_amount.png" style="width:100%; height:100%;"></iframe>
-          </div>
+        <br>
+        <div className="plotContainer">
+            <img src="../images/fraud/fraud_transaction_amt.png" alt="">
+        </div>
          
         <h4>Product Types</h4>
-        
+        There are 5 product types, each with different transaction amounts. This signals that the product 
+        type may have a relation to the cost of the item.
+        <br>
+        <div className="plotContainer">
+          <img src="../images/fraud/fraud_product_types_1.png" alt="">
+        </div>
+        <br>
+        The above plot looks a little too clustered. We can sort of derive that C is a cheaper product, but thats it.
+        <div className="plotContainer">
+          <img src="../images/fraud/fraud_product_types_2.png" alt="">
+        </div>
+        <br><br>
+        Looking at the mean and standard deviations of these products, product 'W' has the highest mean ($122.40)
+        and standard deviation ($126.12), while product C has the lowest mean ($42.87) and standard deviation ($38.92).
+        I think this could be a very useful feature for the model as I would expect higher priced items to be more
+        susceptible to fraud.
+        <br><br>
         <h4>Card Attributes</h4>
-        
-        <h4>Device Type</h4>
-      
+        Card attributes include provider (American Express, Discover, Visa, MasterCard). It is possible that certain
+        providers are more likely to be fraudulent, perhaps due to different security standards.
+        <br><br> 
+        <table>
+          <tr>
+            <th>Card Provider</th>
+            <th>Transactions</th> 
+            <th>Fraud</th> 
+            <th>Pct Fraud</th> 
+          </tr>
+          <tr>
+            <td>American Express</td>
+            <td>8225</td> 
+            <td>239</td> 
+            <td>2.91%</td> 
+          </tr>
+          <tr>
+            <td>Discover</td>
+            <td>6171</td> 
+            <td>436</td> 
+            <td>7.06%</td> 
+          </tr>
+          <tr>
+            <td>MasterCard</td>
+            <td>186045</td> 
+            <td>6396</td> 
+            <td>3.44%</td> 
+          </tr>
+          <tr>
+            <td>Visa</td>
+            <td>378463</td> 
+            <td>13013</td> 
+            <td>3.43%</td> 
+          </tr>
+        </table>
+      </p>
+        So it seems like Discover has a much higher probability of fraud compared to the other card providers. 
+        This will be helpful as we build the model, as the provider type is likely to have some predicitve power.
+        <br><br> 
+        Now lets look at credit and debit cards more generally.
+        <br><br> 
+        <div className="plotContainer" style="height: 300px; width: 1000px">
+          <img src="../images/fraud/provider_comparison.png" alt="">
+        </div>
+        This plot illustrates the probability of fraud for different transaction amounts. Interestingly the majority
+        of fraud actually occurs for lower value items, which goes against my initial hypothesis. Credit cards
+        seem to also have higher proportions of fraud.      
       </div>
     </div>
     <!-- /.row -->
+    <h3>2. Model Building</h3>
 
   </div>
   <!-- /.container -->
