@@ -14,33 +14,6 @@
 	</head>
 	<body class="is-preload">
 
-		<script type="text/javascript">
-			window.onload = function() {
-				var airport = prompt("Choose an Airport");
-
-				var apiUrl = `https://ljnqbcbote.execute-api.us-east-1.amazonaws.com/dev/airlinelookup?airportcode=${airport}`;
-				fetch(apiUrl, {
-					method: 'GET',
-					headers: {
-						"Content-type": "application/json", 
-						"x-api-key": "AEbfugjvWW7Co9XI9SCJ38ppURL0UdpXeZq0IGe0"
-				}
-				}).then(response => {
-				return response.json();
-				}).then(data => {
-				// Work with JSON data here
-				console.log(data);
-				}).catch(err => {
-					console.log("could not fetch URL response from Lambda")
-				// Do something for an error here
-				});
-
-				document.getElementById('output').innerHTML = data;
-			};
-
-
-		</script>
-
 		<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="title">Hyperspace</a>
